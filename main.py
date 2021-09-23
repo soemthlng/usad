@@ -71,13 +71,13 @@ validation = pd.DataFrame(x_scaled)
 # WINDOW_SIZE must be lower than 8
 WINDOW_SIZE=7
 
-windows_train=normal.values[np.arange(WINDOW_SIZE)[None, :] + np.arange(normal.shape[0]-WINDOW_SIZE)[:, None]]
+windows_train=normal.values[np.arange(WINDOW_SIZE)[None, :] + np.arange(train.shape[0]-WINDOW_SIZE)[:, None]]
 windows_train.shape
 
 windows_test=test.values[np.arange(WINDOW_SIZE)[None, :] + np.arange(test.shape[0]-WINDOW_SIZE)[:, None]]
 windows_test.shape
 
-windows_validation=validation.values[np.arange(WINDOW_SIZE)[None, :] + np.arange(attack.shape[0]-WINDOW_SIZE)[:, None]]
+windows_validation=validation.values[np.arange(WINDOW_SIZE)[None, :] + np.arange(validation.shape[0]-WINDOW_SIZE)[:, None]]
 windows_validation.shape
 
 BATCH_SIZE =  500
