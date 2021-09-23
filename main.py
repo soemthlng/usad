@@ -71,7 +71,7 @@ validation = pd.DataFrame(x_scaled)
 # WINDOW_SIZE must be lower than 8
 WINDOW_SIZE=7
 
-windows_train=normal.values[np.arange(WINDOW_SIZE)[None, :] + np.arange(train.shape[0]-WINDOW_SIZE)[:, None]]
+windows_train=train.values[np.arange(WINDOW_SIZE)[None, :] + np.arange(train.shape[0]-WINDOW_SIZE)[:, None]]
 windows_train.shape
 
 windows_test=test.values[np.arange(WINDOW_SIZE)[None, :] + np.arange(test.shape[0]-WINDOW_SIZE)[:, None]]
