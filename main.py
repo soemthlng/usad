@@ -9,6 +9,7 @@ import torch.utils.data as data_utils
 from utils import *
 from usad import *
 from sklearn import preprocessing
+from pathlib import Parh
 
 device = get_dafault_device()
 
@@ -22,7 +23,7 @@ min_max_scaler = preprocessing.MinMaxScaler()
 
 # TRAIN
 train_dataset = sorted([x for x in Path('input/training/').glob("*.csv")])
-train = dataframe_from_csvs(normal_dataset)
+train = dataframe_from_csvs(train_dataset)
 train = train.drop(["time"] , axis = 1)
 train.shape
 
