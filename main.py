@@ -25,7 +25,7 @@ min_max_scaler = preprocessing.MinMaxScaler()
 train_dataset = sorted([x for x in Path('input/training/').glob("*.csv")])
 train = dataframe_from_csvs(train_dataset)
 train = train.drop(["time"] , axis = 1)
-train.shape
+print("test shape :\t", train.shape)
 
 for i in list(train):
     train[i]=train[i].apply(lambda x: str(x).replace("," , "."))
@@ -37,10 +37,10 @@ x_scaled = min_max_scaler.fit_transform(x)
 train = pd.DataFrame(x_scaled)
 
 #TEST
-test_dataset = sorted([x for x in Path('input/data_new/testing/').glob("*.csv")])
+test_dataset = sorted([x for x in Path('input/testing/').glob("*.csv")])
 test = dataframe_from_csvs(test_dataset)
 test = test.drop(["time"], axis=1)
-print("test shape :        ", test.shape)
+print("test shape :\t", test.shape)
 
 for i in list(test):
     test[i]=test[i].apply(lambda x: str(x).replace(",", "."))
@@ -52,11 +52,11 @@ pd.set_option('display.max_columns', 0)
 test = pd.DataFrame(x_scaled)
 
 #VALIDATION
-validation_dataset = sorted([x for x in Path('input/data_new/validation/').glob("*.csv")])
+validation_dataset = sorted([x for x in Path('input/validation/').glob("*.csv")])
 validation = dataframe_from_csvs(validation_dataset)
 labels = [ float(label!= 0 ) for label  in attack["attack"].values]
 validation = validation.drop(["time", "attack"] , axis = 1)
-print("validation shape :        ", validation.shape)
+print("validation shape :\t", validation.shape)
 
 for i in list(validation):
     validation[i]=validation[i].apply(lambda x: str(x).replace("," , "."))
